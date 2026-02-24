@@ -24,6 +24,7 @@ cd ContactManagerCLI
 Build and run:
 
 ```bash
+dotnet build
 dotnet run
 ```
 ##File Structure

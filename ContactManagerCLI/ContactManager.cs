@@ -48,22 +48,30 @@ namespace ContactManagerCLI
         }
         public bool DeleteContact(int id)
         {
+            if (!_contacts.ContainsKey(id))
+            {
+                return false; // Nothing to delete
+            }
             return _contacts.Remove(id);
         }
-        public Contact ViewContact(int id)
+        public Contact? ViewContact(int id)
         {
-            return _contacts[id];
+            if (_contacts.TryGetValue(id, out var contact))
+            {
+                return contact;
+            }
+            return null;
         }
         public Dictionary<int, Contact> ListAllContacts()
         {
             return _contacts;
         }
-        public Contact search(int id) 
+        public Contact? Search(int id) 
         {
-            return _contacts[id];
+            return _contacts.TryGetValue(id, out var contact) ? contact : null;
         }
         //Filters
-        public List<Contact> Filter(string name = null, string phone = null, string email = null, DateTime? fromDate = null, DateTime? toDate = null)
+        public List<Contact>? Filter(string name = null, string phone = null, string email = null, DateTime? fromDate = null, DateTime? toDate = null)
         {
             List<Contact> matches = new List<Contact>();
             foreach (Contact contact in _contacts.Values)

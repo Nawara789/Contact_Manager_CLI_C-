@@ -11,7 +11,7 @@ namespace ContactManagerCLI
     public class JSONContactRepository : IContactRepository
     {
         public readonly string FilePath;
-        public JSONRepository(string filePath)
+        public JSONContactRepository(string filePath)
         {
             FilePath = filePath;
             if (!File.Exists(filePath))

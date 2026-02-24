@@ -13,16 +13,18 @@ The outdated system relies on phone-book-style indexing approach and had several
 1. Ensure you have [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download) installed.
 2. Clone this repository:
 ```bash
-git clone https://github.com/Nawara789/Contact_Manager_CLI_C-.git
+git clone https://github.com/Nawara789/Contact_Manager_CLI_C-.git    
+
 
 Navigate to the project folder:
 
 cd ContactManagerCLI
 
 Build and run:
+
 ```bash
 dotnet run
-
+```
 ##File Structure
 ContactManagerCLI/  
 ├─ ContactManagerCLI.csproj  

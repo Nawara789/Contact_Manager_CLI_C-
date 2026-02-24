@@ -14,12 +14,13 @@ The outdated system relies on phone-book-style indexing approach and had several
 2. Clone this repository:
 ```bash
 git clone https://github.com/Nawara789/Contact_Manager_CLI_C-.git    
-
+```
 
 Navigate to the project folder:
 
+```bash
 cd ContactManagerCLI
-
+```
 Build and run:
 
 ```bash

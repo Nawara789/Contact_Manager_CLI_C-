@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Text.Json;
@@ -22,7 +23,16 @@ namespace ContactManagerCLI
         public Dictionary<int, Contact> Load()
         {
             Dictionary<int, Contact> contacts;
-            string jsonString = File.ReadAllText(FilePath);
+            if (!File.Exists(FilePath))
+            {
+                File.WriteAllText(FilePath, "{}");
+                return new Dictionary<int, Contact>();
+            }
+            var jsonString = File.ReadAllText(FilePath);
+            if (string.IsNullOrWhiteSpace(jsonString))
+            {
+                return new Dictionary<int, Contact>();
+            }
             contacts = JsonSerializer.Deserialize<Dictionary<int, Contact>>(jsonString);
             return contacts ?? new Dictionary<int, Contact>();
         }
